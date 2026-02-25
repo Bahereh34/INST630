@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Card Assignment - Make This Beautiful!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="recipe-container">
+    <main class="recipe-container" aria-label="Recipe card">
         <!-- Recipe Header Section -->
         <header class="recipe-header">
-            <h1 class="recipe-title">Classic Chocolate Chip Cookies</h1>
-            <img src="https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Cookie+Photo" 
-                 alt="Golden brown chocolate chip cookies on a cooling rack" 
-                 class="recipe-image">
+            <div class="hero">
+                <img src="D:\PHD\Spring2026\INST630\asst_1_recipe\best-chocolate-chip-cookies-recipe-1.jpg"
+                     alt="Golden brown chocolate chip cookies on cooling rack">
+                <div class="hero-overlay">
+                    <h1 class="recipe-title">Classic Chocolate Chip Cookies</h1>
+                </div>
+            </div>
         </header>
 
         <!-- Recipe Meta Information -->
@@ -32,7 +38,7 @@
             </div>
             <div class="meta-item">
                 <strong>Difficulty:</strong> Easy
-            </div>
+            </main>
         </section>
 
         <!-- Recipe Description -->
@@ -96,24 +102,6 @@
     </div>
 
     <!-- Assignment Instructions (remove this section when styling) -->
-    <div style="background: white; border: 3px solid black; margin: 20px; padding: 20px; font-family: Arial;">
-        <h2>Your Assignment: Make This Recipe Card Beautiful!</h2>
-        <h3>Requirements:</h3>
-        <ul>
-            <li><strong>Use semantic HTML structure</strong> - the HTML is already properly structured with header, main sections, lists</li>
-            <li><strong>Implement responsive flexbox layouts</strong> - make it work on mobile and desktop</li>
-            <li><strong>Create visual hierarchy</strong> - use typography, spacing, and color to guide the user's eye</li>
-            <li><strong>Design for usability</strong> - this should be easy to follow while cooking</li>
-            <li><strong>Make it beautiful</strong> - choose cohesive colors, fonts, and spacing</li>
-        </ul>
-        <h3>Focus Areas:</h3>
-        <ul>
-            <li>Layout: Use flexbox for responsive design</li>
-            <li>Typography: Create clear information hierarchy</li>
-            <li>Color & Contrast: Ensure readability</li>
-            <li>Spacing: Use consistent margins and padding</li>
-            <li>Mobile-first: Design works on small screens</li>
-        </ul>
-    </div>
+
 </body>
 </html>
