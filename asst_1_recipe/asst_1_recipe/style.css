@@ -36,7 +36,7 @@ h1, h2, p, ul, ol {
 body > div[style] { display: none; }
 
 .recipe-container{
-  width: min(100% - 2rem, 72rem);
+  width: min(100% - 2rem, 60rem);
   margin: 2.5rem auto;
   padding: 2rem;
 
@@ -264,7 +264,7 @@ body > div[style] { display: none; }
 .recipe-footer{
   padding-top: 1rem;
   border-top: 1px solid rgba(43, 33, 26, 0.10);
-  color: rgba(43, 33, 26, 0.70);
+  color: rgba(230, 212, 200, 0.7);
   font-size: 0.92rem;
 }
 
