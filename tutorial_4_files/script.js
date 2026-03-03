@@ -18,8 +18,9 @@
 // Only one can be true at a time.
 // (Later, think about whether you need both.)
 
-let isGoing    = false;
-let isNotGoing = false;
+isGoing = true;
+isNotGoing = false;
+
 
 console.log(isGoing || isNotGoing )
 
@@ -54,17 +55,19 @@ const getName = () => {
   const raw = nameInput.value.trim();
   return raw || 'Someone';
   // What does || do here? If raw is an empty string (falsy), return 'Someone'.
+
 };
 
 // getGuests() returns the guest count as a NUMBER.
 // Try: console.log(typeof guestInput.value) — what do you see?
 // Number() converts the string "3" to the number 3.
 
-const getGuests = () => Number(guestInput.value);
-
-
+const getGuests = () => {
+  const num = Number(guestInput.value);
+  return num > 0 ? num : 0;
+};
 // ── 4. TASK 1 & 2: wire up the YES button ───────────────────
-//
+
 // When the user clicks Going:
 //   - set isGoing = true, isNotGoing = false
 //   - add 'active' class to btnYes, remove it from btnNo
@@ -75,6 +78,19 @@ const getGuests = () => Number(guestInput.value);
 btnYes.addEventListener('click', () => {
 
   // YOUR CODE HERE
+
+  isGoing = true;
+  isNotGoing = false;
+
+  btnYes.classList.add('active');
+  btnNo.classList.remove('active');
+
+  guestField.classList.remove('hidden');
+
+  confirmation.classList.remove('hidden');
+  regret.classList.add('hidden');
+
+  updateConfirmation();
 
 
 });
@@ -90,6 +106,18 @@ btnYes.addEventListener('click', () => {
 btnNo.addEventListener('click', () => {
 
   // YOUR CODE HERE
+
+  isGoing = false;
+  isNotGoing = true;
+  btnNo.classList.add('active');
+  btnYes.classList.remove('active');
+  guestField.classList.add('hidden');
+  confirmation.classList.add('hidden');
+  regret.classList.remove('hidden');
+  regret.textContent = `Sorry ${getName()}, we’ll miss you!`;
+
+  updateConfirmation();
+
 
 
 });
@@ -111,13 +139,21 @@ btnNo.addEventListener('click', () => {
 
 const updateConfirmation = () => {
   const guests = getGuests();
+// YOUR CODE HERE: build guestLine based on guests value
 
-  // YOUR CODE HERE: build guestLine based on guests value
+  let guestLine;
 
+  if (guests === 0) {
+    guestLine = "flying solo.";
+  } else if (guests === 1) {
+    guestLine = "bringing 1 guest.";
+  } else {
+    guestLine = `bringing ${guests} guests.`;
+  }
 
   // YOUR CODE HERE: set confirmation.textContent using a template literal
   // Example shape: `${getName()} is coming — ${guestLine}`
-
+  confirmation.textContent = `${getName()} is coming — ${guestLine}`;
 };
 
 
@@ -132,13 +168,27 @@ const updateConfirmation = () => {
 nameInput.addEventListener('input', () => {
 
   // YOUR CODE HERE
+  nameInput.addEventListener('input', () => {
 
+  if (isGoing) {
+    updateConfirmation();
+  }
+
+  if (isNotGoing) {
+    regret.textContent = `Sorry ${getName()}, we’ll miss you!`;
+  }
 
 });
+
 
 guestInput.addEventListener('input', () => {
 
   // YOUR CODE HERE
+  if (isGoing) {
+    updateConfirmation();
+  }
+
+});
 
 
 });
